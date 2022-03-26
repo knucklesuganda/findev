@@ -3,18 +3,21 @@ from fastapi import FastAPI
 from api.responses import CustomJSONResponse
 
 
-app = FastAPI(default_response_class=CustomJSONResponse)
+app = FastAPI(
+    default_response_class=CustomJSONResponse,
+)
 
 
 @app.get('/')
-async def test_view():
+async def test_route():
     return {
-        "ok": True,
+        "hello": False,
     }
 
 
-@app.get('/second')
-async def second_view():
+@app.get('/2')
+async def test_route2():
     return {
-        "second_ok": True,
+        "second_route": False,
     }
+

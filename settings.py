@@ -1,6 +1,5 @@
 import environs
 
-
 env = environs.Env()
 env.read_env('.env')
 

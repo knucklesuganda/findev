@@ -1,4 +1,5 @@
 import typing
+
 from fastapi.responses import JSONResponse
 
 import settings
