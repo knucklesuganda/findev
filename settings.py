@@ -20,3 +20,5 @@ DATABASE_CONFIG = {
         },
     },
 }
+
+MIN_USERNAME_LENGTH = env.int('MIN_USERNAME_LENGTH')
