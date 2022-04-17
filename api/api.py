@@ -1,20 +1,15 @@
 from fastapi import FastAPI
 
 from api.responses import CustomJSONResponse
-
+from api.users.routes import get_auth_routers
 
 app = FastAPI(default_response_class=CustomJSONResponse)
 
 
-@app.get('/')
-async def test_view():
-    return {
-        "ok": True,
-    }
+for router in get_auth_routers():
+    app.include_router(
+        router['router'],
+        prefix=router['prefix'],
+        tags=["auth"],
+    )
 
-
-@app.get('/second')
-async def second_view():
-    return {
-        "second_ok": True,
-    }
