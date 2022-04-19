@@ -1,23 +1,13 @@
 from fastapi import FastAPI
 
 from api.responses import CustomJSONResponse
+from api.users.api import get_auth_routers
+
+app = FastAPI(default_response_class=CustomJSONResponse)
 
 
-app = FastAPI(
-    default_response_class=CustomJSONResponse,
-)
-
-
-@app.get('/')
-async def test_route():
-    return {
-        "hello": False,
-    }
-
-
-@app.get('/2')
-async def test_route2():
-    return {
-        "second_route": False,
-    }
-
+for auth_router in get_auth_routers():
+    app.include_router(
+        router=auth_router['router'],
+        prefix=f'/{auth_router["name"]}',
+    )
