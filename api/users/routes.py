@@ -28,8 +28,12 @@ def get_auth_routers():
 
     for auth_backend in get_auth_backends():
         routers.append({
-            "prefix": f"/{auth_backend.name}",
+            "prefix": f"/users/{auth_backend.name}",
             "router": fastapi_users.get_auth_router(auth_backend),
         })
 
     return routers
+
+
+def get_register_router():
+    return fastapi_users.get_register_router()

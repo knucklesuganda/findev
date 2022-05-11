@@ -15,6 +15,7 @@ DATABASE_CONFIG = {
         "models": {
             "models": [
                 "aerich.models",
+                "database.users.models",
             ],
             "default_connection": "default",
         },
@@ -22,6 +23,7 @@ DATABASE_CONFIG = {
 }
 
 MIN_USERNAME_LENGTH = env.int('MIN_USERNAME_LENGTH')
+MAX_USERNAME_LENGTH = env.int('MAX_USERNAME_LENGTH')
 USER_AUTH_MAX_AGE = env.int('USER_AUTH_MAX_AGE')
 USER_TOKEN_SECRET = env('USER_TOKEN_SECRET')
 USER_RESET_PASSWORD_TOKEN_SECRET = env('USER_RESET_PASSWORD_TOKEN_SECRET')
