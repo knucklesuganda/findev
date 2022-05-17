@@ -37,3 +37,7 @@ def get_auth_routers():
 
 def get_register_router():
     return fastapi_users.get_register_router()
+
+
+def get_users_router():
+    return fastapi_users.get_users_router()
